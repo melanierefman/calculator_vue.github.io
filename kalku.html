@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Sederhana dengan Vue.js</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Kalkulator</h1>
+    <input v-model="angka1" type="text" />
+    <input v-model="angka2" type="text" />
+    <br><br>
+    <button @click="tambah">+</button>
+    <button @click="kurang">-</button>
+    <button @click="kali">*</button>
+    <button @click="bagi">/</button>
+    <br><br>
+    <input v-model="hasil" type="text" readonly />
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        angka1: 0,
+        angka2: 0,
+        hasil: 0,
+      },
+      methods: {
+        tambah: function() {
+          this.hasil = parseFloat(this.angka1) + parseFloat(this.angka2);
+        },
+        kurang: function() {
+          this.hasil = parseFloat(this.angka1) - parseFloat(this.angka2);
+        },
+        kali: function() {
+          this.hasil = parseFloat(this.angka1) * parseFloat(this.angka2);
+        },
+        bagi: function() {
+          this.hasil = parseFloat(this.angka1) / parseFloat(this.angka2);
+        },
+      },
+    });
+  </script>
+</body>
+</html>
